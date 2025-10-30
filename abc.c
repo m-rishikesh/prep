@@ -12,13 +12,13 @@ int main(int argc, char *argv[]){
       ListTask(argv[2]);
       break;
     case 'd':
-      printf("D\n");
+      DeleteTask(argv[2]);
       break;
     case 'm':
-      printf("M\n");
+      MarkTask(argv[2]);
       break;
     case 'e':
-      printf("E\n");
+      EditTask(argv[2],argv[3]);
       break;
     default:
       printf("Bye\n");
