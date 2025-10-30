@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include "TaskFunction.c"
+#include<stdlib.h>
 int a = 10;
 int main(int argc, char *argv[]){
   printf("TODO SOFTWARE\n");
@@ -19,6 +20,14 @@ int main(int argc, char *argv[]){
       break;
     case 'e':
       EditTask(argv[2],argv[3]);
+      break;
+    case 'u':
+      int reply = system("go run main.go");
+      if (reply == 0){
+        printf("File Updated to Cloud");
+      }else{
+        printf("Error while uploading to the cloud.");
+      }
       break;
     default:
       printf("Bye\n");

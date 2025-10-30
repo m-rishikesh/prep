@@ -6,7 +6,7 @@ char line[256];
 // ### Adding The Tasks ######
 
 int AddTask(char *id,char *task){
-  if (id == NULL || task == NULL){
+  if (id == NULL || task == NULL || strlen(task) == 0 || strlen(id) == 0){
     printf("Provide the ID/Task\n");
     return 1;
   } 
@@ -16,7 +16,8 @@ int AddTask(char *id,char *task){
     return 1;
   }
   while(fgets(line,sizeof(line),fp) != NULL){
-    if(strstr(line,id)){
+    char *tkn = strtok(line," \t\n");
+    if(strcmp(id,tkn) == 0){
       printf("task already exists!!");
       return 1;
     }
